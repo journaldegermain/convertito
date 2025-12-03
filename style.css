@@ -37,18 +37,130 @@ button {
 button:hover {
     background-color: #357ABD;
 }
-/* Centrer parfaitement le champ du montant */
+/* --- FIX D'ALIGNEMENT GLOBAL POUR LE CHAMP MONTANT --- */
+
+/* S'assurer que le calcul de largeur inclut padding/border */
+* { box-sizing: border-box; }
+
+/* Forcer largeur cohérente de la card (padding symétrique) */
+.card {
+  max-width: 520px;
+  width: 100%;
+  padding-left: 20px;   /* même padding que précédemment */
+  padding-right: 20px;  /* important : symétrique */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Wrapper interne pour garantir largeur identique aux selects */
+.card > .inner-wrap {
+  width: 100%;
+}
+
+/* big-field : occupe exactement la même largeur utile que les selects */
 .big-field {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;           /* pas de padding qui décale */
+  margin: 0 0 12px 0;
 }
 
+/* L'input prend 100% de la zone disponible, sans débordement */
 .big-field input {
   width: 100%;
   max-width: 100%;
+  padding: 18px 14px;   /* même hauteur que la visuelle précédente */
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.03);
+  background: var(--glass);
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 600;
   text-align: center;
-  margin: 0 auto;
   display: block;
+  margin: 0;
+  outline: none;
+}
+
+/* Assure que selects et input ont exactement la même largeur visuelle */
+.row.twocols {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Chaque colonne prend la même largeur quand possible */
+.col {
+  flex: 1 1 0%;
+  min-width: 0; /* essentiel pour que flex shrink marche correctement */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Le centre (swap) garde une largeur fixe mais centrée */
+.col.center {
+  flex: 0 0 54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Les selects remplissent exactement leur colonne */
+select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.03);
+  background: transparent;
+  color: var(--text);
+  font-size: 15px;
+  -webkit-appearance: none; /* enlever styles natifs qui décalent */
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Forcer l'icône swap à être centrée sans décaler le flow */
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--text);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Si les labels ajoutent un margin-left qui décale, on annule */
+.label, .label.small {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* S'assurer que le résultat occupe toute la largeur visuelle */
+.result {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  margin-top: 14px;
+}
+
+/* Responsive : garder alignement sur petits écrans */
+@media (max-width: 440px) {
+  .row.twocols { gap: 8px; }
+  .col.center { flex: 0 0 44px; }
+  .big-field input { font-size: 20px; padding: 14px; }
 }
