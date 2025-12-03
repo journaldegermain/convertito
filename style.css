@@ -37,67 +37,18 @@ button {
 button:hover {
     background-color: #357ABD;
 }
-/* ALIGNEMENT GLOBAL / CENTRÉ */
-.app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-/* Centrer parfaitement le header */
-.top {
-  text-align: center;
-}
-
-/* Aligner le bloc principal */
-.card {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Alignement propre des deux colonnes (sélecteurs de devises) */
-.row.twocols {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-/* Chaque colonne est bien centrée */
-.col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Le bouton swap est centré pile */
-.col.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Centrer le résultat */
-.result {
-  text-align: center;
-}
-
-/* Centrer la zone des méta-infos */
-.meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Centrer le footer */
-.foot {
-  text-align: center;
+/* Centrer parfaitement le champ du montant */
+.big-field {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
-    text-align: center;
+.big-field input {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
 }
-
-
