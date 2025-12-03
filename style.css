@@ -164,3 +164,13 @@ select {
   .col.center { flex: 0 0 44px; }
   .big-field input { font-size: 20px; padding: 14px; }
 }
+
+/* Corrige le menu déroulant en dark mode */
+select option {
+  background-color: #111;  /* fond sombre */
+  color: #fff;             /* texte blanc */
+}
+
+select {
+  color-scheme: dark;
+}
