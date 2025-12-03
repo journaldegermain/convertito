@@ -1,29 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convertisseur de devises</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Convertito — Dark</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Convertisseur de devises</h1>
+  <main class="app">
+    <header class="top">
+      <h1>Convertito</h1>
+      <p class="subtitle">Convertisseur de devises — Dark Apple</p>
+    </header>
 
-        <label for="amount">Montant :</label>
-        <input type="number" id="amount" placeholder="Entrez le montant">
+    <section class="card">
+      <label class="label">Montant</label>
+      <div class="big-field">
+        <input id="amount" type="number" step="any" value="1" inputmode="decimal" />
+      </div>
 
-        <label for="from">Devise de départ :</label>
-        <select id="from"></select>
+      <div class="row twocols">
+        <div class="col">
+          <label class="label small">De</label>
+          <select id="from"></select>
+        </div>
 
-        <label for="to">Devise d'arrivée :</label>
-        <select id="to"></select>
+        <div class="col center">
+          <button id="swap" title="Inverser" class="icon-btn">⇄</button>
+        </div>
 
-        <button id="convert">Convertir</button>
+        <div class="col">
+          <label class="label small">Vers</label>
+          <select id="to"></select>
+        </div>
+      </div>
 
-        <p id="result"></p>
-    </div>
+      <div class="controls">
+        <button id="convert" class="primary">Convertir</button>
+        <button id="copy" class="ghost">Copier</button>
+      </div>
 
-    <script src="script.js"></script>
+      <div class="result" id="result">—</div>
+
+      <div class="meta">
+        <span id="rate">Taux : —</span>
+        <span id="updated">Dernière mise à jour : —</span>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <small>API : Frankfurter • Fonctionne sur mobile</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
